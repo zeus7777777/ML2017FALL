@@ -1,6 +1,7 @@
 cp $1 ensemble/$1
 cd ensemble/
-cat model.part* | tar zxvf -
+wget http://cmlab.csie.ntu.edu.tw/~zeus/model.tar
+tar xcf model.tar
 python3 vgg11.py $1 11.txt
 python3 vgg13.py $1 13.txt
 python3 vgg16.py $1 16.txt
