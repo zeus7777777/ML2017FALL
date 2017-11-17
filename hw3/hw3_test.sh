@@ -1,3 +1,4 @@
+cp $1 ensemble/$1
 cd ensemble/
 cat model.part* | tar zxvf -
 python3 vgg11.py $1 11.txt
