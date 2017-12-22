@@ -1,4 +1,4 @@
-mv $1 test.csv
+cp $1 test.csv
 cd model_mf/
 python3 test.py
 cd ..
