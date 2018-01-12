@@ -24,17 +24,19 @@ class FeatureExtractor():
     def __init__(self):
         self.image = tf.placeholder(tf.float32, [None, 784])
 
-        fc1 = fc(self.image, [784, 256], tf.nn.relu)
-        fc2 = fc(fc1, [256, 128], tf.nn.relu)
+        fc1 = fc(self.image, [784, 512], tf.nn.relu)
+        fc2 = fc(fc1, [512, 256], tf.nn.relu)
+        fc3 = fc(fc2, [256, 128], tf.nn.relu)
 
-        self.flat = fc2
+        self.flat = fc3
 
         fc11 = fc(self.flat, [128, 256], tf.nn.relu)
-        fc22 = fc(fc11, [256, 784], tf.nn.sigmoid)
+        fc22 = fc(fc11, [256, 512], tf.nn.relu)
+        fc33 = fc(fc22, [512, 784], tf.nn.sigmoid)
         
-        self.reconstruct = tf.reshape(fc22, [-1, 28, 28])
+        self.reconstruct = tf.reshape(fc33, [-1, 28, 28])
 
-        self.loss = tf.reduce_mean(tf.square(self.image - fc22))
+        self.loss = tf.reduce_mean(tf.square(self.image - fc33))
         trainer = tf.train.AdamOptimizer(cfg.learning_rate)
         self.train_step = trainer.minimize(self.loss)
 
