@@ -11,7 +11,7 @@ def read_test_data(filename):
 
 if __name__=='__main__':
     labels = np.load('labels.npy')
-    test = read_test_data('../test_case.csv')
+    test = read_test_data('test_case.csv')
 
     with open('output.txt', 'w') as f:
         f.write('ID,Ans\n')
