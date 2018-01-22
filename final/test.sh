@@ -1,5 +1,7 @@
-cp $1 data/test.data
-cp $2 data/test.csv
+cp $1 src/data/test.data
+cp $2 src/data/test.csv
+
+cd src/
 
 cd model2/
 python3 preprocess.py
@@ -16,8 +18,10 @@ cp new0/output.txt ensemble/0.txt
 cd new1/
 python3 preprocess.py
 python3 test.py
-cd ..
+cd ../
 cp new1/output.txt ensemble/1.txt
 
 python3 ensemble.py
-mv ans.txt $3
+cd ../
+
+mv src/ans.txt $3
