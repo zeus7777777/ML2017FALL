@@ -7,7 +7,7 @@
 ## Usage
 
 `
-bash test.py [mfcc test file] [caption test file] [output file]
+bash test.sh [mfcc test file] [caption test file] [output file]
 `
 
 ## Result
