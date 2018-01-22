@@ -1,3 +1,6 @@
+mkdir src/data
+mkdir src/ensemble
+
 cp $1 src/data/test.data
 cp $2 src/data/test.csv
 
